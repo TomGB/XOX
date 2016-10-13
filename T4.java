@@ -256,7 +256,7 @@ public class T4 extends JFrame{
 	public void makeMove(){
 		grid[x][y]=turn;
 
-		numberIn[x/3][y/3]++;		
+		numberIn[x/3][y/3]++;
 		selectable[x%3][y%3]=true;
 
 		if(winGrid[x/3][y/3]=='E'){
@@ -283,7 +283,7 @@ public class T4 extends JFrame{
 			for(int i=0; i<3; i++){
 				if(
 					array[baseX][baseY+i]==tempTurn&&array[baseX+1][baseY+i]==tempTurn&&array[baseX+2][baseY+i]==tempTurn||
-					array[baseX+i][baseY]==tempTurn&&array[baseX+i][baseY+1]==tempTurn&&array[baseX+i][baseY+2]==tempTurn 
+					array[baseX+i][baseY]==tempTurn&&array[baseX+i][baseY+1]==tempTurn&&array[baseX+i][baseY+2]==tempTurn
 				){
 					win=true;
 				}
@@ -309,6 +309,10 @@ public class T4 extends JFrame{
 	public static int r(int input){return (int) (Math.random()*input);}
 	public static void s(int input){try{Thread.sleep(input);}catch(InterruptedException e){}}
 	public static void main(String args[]){
-		new T4(args[0]);
+		if(args.length != 1){
+			p("please insert 1 / 0 for ai or no ai");
+		}else{
+			new T4(args[0]);
+		}
 	}
 }
